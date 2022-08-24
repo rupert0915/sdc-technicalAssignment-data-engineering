@@ -1,0 +1,25 @@
+{
+	"name": "RestResource1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestService1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"q": {
+				"type": "string",
+				"defaultValue": "tesla"
+			},
+			"sortBy": {
+				"type": "string",
+				"defaultValue": "publishedAt"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "everything"
+		},
+		"schema": []
+	}
+}
