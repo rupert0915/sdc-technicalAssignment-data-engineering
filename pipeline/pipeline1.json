@@ -13,7 +13,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Destination",
+						"value": "connections.test"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "RestSource",
