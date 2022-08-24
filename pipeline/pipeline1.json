@@ -124,7 +124,7 @@
 								}
 							}
 						],
-						"collectionReference": "$['articles']"
+						"collectionReference": ""
 					}
 				},
 				"inputs": [
