@@ -30,7 +30,8 @@
 							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
-							"type": "JsonWriteSettings"
+							"type": "JsonWriteSettings",
+							"filePattern": "setOfObjects"
 						}
 					},
 					"enableStaging": false,
