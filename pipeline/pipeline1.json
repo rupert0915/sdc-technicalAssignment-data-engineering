@@ -53,7 +53,7 @@
 							},
 							{
 								"source": {
-									"path": "['source']['id']"
+									"path": "$['articles'][0]['source']['id']"
 								},
 								"sink": {
 									"name": "id"
@@ -61,7 +61,7 @@
 							},
 							{
 								"source": {
-									"path": "['source']['name']"
+									"path": "$['articles'][0]['source']['name']"
 								},
 								"sink": {
 									"name": "name"
@@ -69,7 +69,7 @@
 							},
 							{
 								"source": {
-									"path": "['author']"
+									"path": "$['articles'][0]['author']"
 								},
 								"sink": {
 									"name": "author"
@@ -77,7 +77,7 @@
 							},
 							{
 								"source": {
-									"path": "['title']"
+									"path": "$['articles'][0]['title']"
 								},
 								"sink": {
 									"name": "title"
@@ -85,7 +85,7 @@
 							},
 							{
 								"source": {
-									"path": "['description']"
+									"path": "$['articles'][0]['description']"
 								},
 								"sink": {
 									"name": "description"
@@ -93,7 +93,7 @@
 							},
 							{
 								"source": {
-									"path": "['url']"
+									"path": "$['articles'][0]['url']"
 								},
 								"sink": {
 									"name": "url"
@@ -101,7 +101,7 @@
 							},
 							{
 								"source": {
-									"path": "['urlToImage']"
+									"path": "$['articles'][0]['urlToImage']"
 								},
 								"sink": {
 									"name": "urlToImage"
@@ -109,7 +109,7 @@
 							},
 							{
 								"source": {
-									"path": "['publishedAt']"
+									"path": "$['articles'][0]['publishedAt']"
 								},
 								"sink": {
 									"name": "publishedAt"
@@ -117,14 +117,14 @@
 							},
 							{
 								"source": {
-									"path": "['content']"
+									"path": "$['articles'][0]['content']"
 								},
 								"sink": {
 									"name": "content"
 								}
 							}
 						],
-						"collectionReference": "$['articles']",
+						"collectionReference": "",
 						"mapComplexValuesToString": true
 					}
 				},
