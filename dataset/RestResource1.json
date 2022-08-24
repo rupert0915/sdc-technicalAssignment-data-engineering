@@ -5,24 +5,6 @@
 			"referenceName": "RestService1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"q": {
-				"type": "string",
-				"defaultValue": "tesla"
-			},
-			"sortBy": {
-				"type": "string",
-				"defaultValue": "publishedAt"
-			},
-			"apiKey": {
-				"type": "string",
-				"defaultValue": "5fb67aab8b0d492f956e4460b68bffbf"
-			},
-			"from": {
-				"type": "string",
-				"defaultValue": "2022-08-24"
-			}
-		},
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
