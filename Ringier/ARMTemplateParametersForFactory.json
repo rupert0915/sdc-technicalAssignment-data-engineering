@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Ringier"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"RestService2_clientSecret": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://leggacy.dfs.core.windows.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://newsapi.org/v2/everything?q=Apple&from=2022-08-24&sortBy=popularity&apiKey=5fb67aab8b0d492f956e4460b68bffbf"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "https://newsapi.org/v2"
+		},
+		"RestService2_properties_typeProperties_clientId": {
+			"value": "rupert@datascent.co"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://newsapi.org/v2/"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "rupert@datascent"
+		},
+		"HttpServer2_properties_typeProperties_url": {
+			"value": "https://newsapi.org/v2/everything"
+		}
+	}
+}
