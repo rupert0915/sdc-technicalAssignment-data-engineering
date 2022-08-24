@@ -43,7 +43,8 @@
 						"referenceName": "RestResource1",
 						"type": "DatasetReference",
 						"parameters": {
-							"q": "tesla"
+							"q": "tesla",
+							"apiKey": "5fb67aab8b0d492f956e4460b68bffbf"
 						}
 					}
 				],
