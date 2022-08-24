@@ -27,6 +27,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://leggacy.dfs.core.windows.net/"
@@ -86,7 +90,7 @@
 				"type": "RestService",
 				"typeProperties": {
 					"url": "[parameters('RestService1_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
+					"enableServerCertificateValidation": false,
 					"authenticationType": "Anonymous"
 				}
 			},
@@ -137,119 +141,16 @@
 								"httpRequestTimeout": "00:01:40",
 								"requestInterval": "00.00:00:00.010",
 								"requestMethod": "GET",
-								"additionalHeaders": {
-									"q": "tesla",
-									"sortBy": "publishedAt"
-								},
 								"paginationRules": {
 									"supportRFC5988": "true"
 								}
 							},
 							"sink": {
-								"type": "RestSink",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": 10,
-								"requestMethod": "POST",
-								"writeBatchSize": 10000,
-								"httpCompressionType": "none"
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "RestResource1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "RestResource1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Copy data2",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
-								}
-							},
-							"sink": {
-								"type": "RestSink",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": 10,
-								"requestMethod": "POST",
-								"writeBatchSize": 10000,
-								"httpCompressionType": "none"
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "RestResource1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "RestResource1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Copy data3",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings",
-									"copyBehavior": "FlattenHierarchy"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false,
+								"tableOption": "autoCreate",
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
@@ -260,7 +161,7 @@
 											"path": "$['status']"
 										},
 										"sink": {
-											"ordinal": 1
+											"name": "status"
 										}
 									},
 									{
@@ -268,82 +169,84 @@
 											"path": "$['totalResults']"
 										},
 										"sink": {
-											"ordinal": 2
+											"name": "totalResults"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['source']['id']"
+											"path": "[['source']['id']"
 										},
 										"sink": {
-											"ordinal": 3
+											"name": "id"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['source']['name']"
+											"path": "[['source']['name']"
 										},
 										"sink": {
-											"ordinal": 4
+											"name": "name"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['author']"
+											"path": "[['author']"
 										},
 										"sink": {
-											"ordinal": 5
+											"name": "author"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['title']"
+											"path": "[['title']"
 										},
 										"sink": {
-											"ordinal": 6
+											"name": "title"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['description']"
+											"path": "[['description']"
 										},
 										"sink": {
-											"ordinal": 7
+											"name": "description"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['url']"
+											"path": "[['url']"
 										},
 										"sink": {
-											"ordinal": 8
+											"name": "url"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['urlToImage']"
+											"path": "[['urlToImage']"
 										},
 										"sink": {
-											"ordinal": 9
+											"name": "urlToImage"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['publishedAt']"
+											"path": "[['publishedAt']"
 										},
 										"sink": {
-											"ordinal": 10
+											"name": "publishedAt"
 										}
 									},
 									{
 										"source": {
-											"path": "$['articles'][0]['content']"
+											"path": "[['content']"
 										},
 										"sink": {
-											"ordinal": 11
+											"name": "content"
 										}
 									}
-								]
+								],
+								"collectionReference": "$['articles']",
+								"mapComplexValuesToString": true
 							}
 						},
 						"inputs": [
@@ -355,7 +258,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "DelimitedText1",
+								"referenceName": "AzureSqlTable1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -375,7 +278,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/RestResource1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]"
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
 			]
 		},
 		{
@@ -403,29 +306,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Json1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "HttpServer1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "HttpServerLocation",
-						"relativeUrl": "/everything"
-					}
-				},
-				"schema": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpServer1')]"
-			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
@@ -489,51 +369,37 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase2_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
+					"referenceName": "AzureSqlDatabase2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "leggacy"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
+					"schema": "dbo",
+					"table": "test"
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
 			]
 		}
 	]
