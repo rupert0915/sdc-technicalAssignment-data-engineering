@@ -23,6 +23,9 @@
 		"AzureSqlDatabase2_connectionString": {
 			"value": ""
 		},
+		"table_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://leggacy.dfs.core.windows.net/"
 		},
