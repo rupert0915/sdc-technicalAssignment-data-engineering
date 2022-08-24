@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data3",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -13,12 +13,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Destination",
-						"value": "connections.test"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "RestSource",
@@ -32,106 +27,11 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": true,
+						"sqlWriterUseTableLock": false,
 						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['status']"
-								},
-								"sink": {
-									"name": "status"
-								}
-							},
-							{
-								"source": {
-									"path": "$['totalResults']"
-								},
-								"sink": {
-									"name": "totalResults"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['source']['id']"
-								},
-								"sink": {
-									"name": "id"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['source']['name']"
-								},
-								"sink": {
-									"name": "name"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['author']"
-								},
-								"sink": {
-									"name": "author"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['title']"
-								},
-								"sink": {
-									"name": "title"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['description']"
-								},
-								"sink": {
-									"name": "description"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['url']"
-								},
-								"sink": {
-									"name": "url"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['urlToImage']"
-								},
-								"sink": {
-									"name": "urlToImage"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['publishedAt']"
-								},
-								"sink": {
-									"name": "publishedAt"
-								}
-							},
-							{
-								"source": {
-									"path": "$['articles'][0]['content']"
-								},
-								"sink": {
-									"name": "content"
-								}
-							}
-						],
-						"collectionReference": "",
-						"mapComplexValuesToString": true
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
