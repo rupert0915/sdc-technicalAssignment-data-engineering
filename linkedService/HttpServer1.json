@@ -1,0 +1,21 @@
+{
+	"name": "HttpServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://newsapi.org/v2",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Basic",
+			"userName": "rupert@datascent",
+			"authHeaders": {
+				"apiKey": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			},
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEUxNzM0M0I3LUM1RUItNEFFQS05QkE4LTYxMkUyMERGRjY1NF8zY2YxMTk5Yi1jNGM0LTQ2ZjAtYTE4ZS03ZjQ2MTQ3OWFlYjAiDQp9"
+		}
+	}
+}
