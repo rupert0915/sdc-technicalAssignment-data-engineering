@@ -1,16 +1,10 @@
 {
 	"name": "RestService1",
 	"properties": {
-		"parameters": {
-			"apiKey": {
-				"type": "string",
-				"defaultValue": "5fb67aab8b0d492f956e4460b68bffbf"
-			}
-		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://newsapi.org/v2/everything",
+			"url": "https://newsapi.org/v2/everything?q=Apple&from=2022-08-24&sortBy=popularity&apiKey=5fb67aab8b0d492f956e4460b68bffbf",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
