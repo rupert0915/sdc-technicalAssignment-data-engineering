@@ -1,6 +1,12 @@
 {
 	"name": "RestService1",
 	"properties": {
+		"parameters": {
+			"apiKey": {
+				"type": "string",
+				"defaultValue": "5fb67aab8b0d492f956e4460b68bffbf"
+			}
+		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
