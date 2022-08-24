@@ -286,12 +286,104 @@
 							"sink": {
 								"type": "AzureSqlSink",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"sqlWriterUseTableLock": false,
+								"tableOption": "autoCreate",
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
-								"mapComplexValuesToString": true
+								"mappings": [
+									{
+										"source": {
+											"path": "$['status']"
+										},
+										"sink": {
+											"name": "status"
+										}
+									},
+									{
+										"source": {
+											"path": "$['totalResults']"
+										},
+										"sink": {
+											"name": "totalResults"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['source']['id']"
+										},
+										"sink": {
+											"name": "id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['source']['name']"
+										},
+										"sink": {
+											"name": "name"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['author']"
+										},
+										"sink": {
+											"name": "author"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['title']"
+										},
+										"sink": {
+											"name": "title"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['description']"
+										},
+										"sink": {
+											"name": "description"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['url']"
+										},
+										"sink": {
+											"name": "url"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['urlToImage']"
+										},
+										"sink": {
+											"name": "urlToImage"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['publishedAt']"
+										},
+										"sink": {
+											"name": "publishedAt"
+										}
+									},
+									{
+										"source": {
+											"path": "$['articles'][0]['content']"
+										},
+										"sink": {
+											"name": "content"
+										}
+									}
+								],
+								"collectionReference": "$['articles']"
 							}
 						},
 						"inputs": [
@@ -313,11 +405,6 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
-				},
-				"parameters": {
-					"Rupert": {
-						"type": "string"
-					}
 				},
 				"annotations": []
 			},
