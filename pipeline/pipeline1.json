@@ -141,11 +141,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"Rupert": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
