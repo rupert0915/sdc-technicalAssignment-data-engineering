@@ -40,55 +40,88 @@
 							{
 								"source": {
 									"path": "$['status']"
+								},
+								"sink": {
+									"path": "$['status']"
 								}
 							},
 							{
 								"source": {
+									"path": "$['totalResults']"
+								},
+								"sink": {
 									"path": "$['totalResults']"
 								}
 							},
 							{
 								"source": {
 									"path": "$['articles'][0]['source']['id']"
+								},
+								"sink": {
+									"path": "$['articles'][0]['source']['id']"
 								}
 							},
 							{
 								"source": {
+									"path": "$['articles'][0]['source']['name']"
+								},
+								"sink": {
 									"path": "$['articles'][0]['source']['name']"
 								}
 							},
 							{
 								"source": {
 									"path": "$['articles'][0]['author']"
+								},
+								"sink": {
+									"path": "$['articles'][0]['author']"
 								}
 							},
 							{
 								"source": {
+									"path": "$['articles'][0]['title']"
+								},
+								"sink": {
 									"path": "$['articles'][0]['title']"
 								}
 							},
 							{
 								"source": {
 									"path": "$['articles'][0]['description']"
+								},
+								"sink": {
+									"path": "$['articles'][0]['description']"
 								}
 							},
 							{
 								"source": {
+									"path": "$['articles'][0]['url']"
+								},
+								"sink": {
 									"path": "$['articles'][0]['url']"
 								}
 							},
 							{
 								"source": {
 									"path": "$['articles'][0]['urlToImage']"
+								},
+								"sink": {
+									"path": "$['articles'][0]['urlToImage']"
 								}
 							},
 							{
 								"source": {
 									"path": "$['articles'][0]['publishedAt']"
+								},
+								"sink": {
+									"path": "$['articles'][0]['publishedAt']"
 								}
 							},
 							{
 								"source": {
+									"path": "$['articles'][0]['content']"
+								},
+								"sink": {
 									"path": "$['articles'][0]['content']"
 								}
 							}
@@ -103,7 +136,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Json2",
+						"referenceName": "Json1",
 						"type": "DatasetReference"
 					}
 				]
