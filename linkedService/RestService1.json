@@ -13,6 +13,10 @@
 			"sortBy": {
 				"type": "string",
 				"defaultValue": "popularity"
+			},
+			"apiKey": {
+				"type": "String",
+				"defaultValue": "5fb67aab8b0d492f956e4460b68bffbf"
 			}
 		},
 		"annotations": [],
