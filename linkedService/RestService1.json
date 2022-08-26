@@ -22,7 +22,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://newsapi.org/v2/",
+			"url": "https://newsapi.org/v2/everything",
 			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
